@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className='bg-teal-500'>
-      <div className='container mx-auto py-4'>
-        <div className='flex justify-between items-center'>
-          <div className='text-2xl font-bold text-white'>
+      <div className='container mx-auto px-2 sm:px-0 py-4'>
+        <div className='flex flex-col sm:flex-row justify-between items-center'>
+          <div className='text-2xl font-bold text-white mb-1 sm:mb-0'>
             <Link to='/'>Web Quiz</Link>
           </div>
-          <ul className='flex gap-8 text-white font-medium'>
+          <ul className='flex gap-6 text-white font-medium'>
             <li>
               <NavLink to='/'>Topics</NavLink>
             </li>

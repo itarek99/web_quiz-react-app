@@ -10,11 +10,17 @@ function App() {
       path: '/',
       element: <Main></Main>,
       children: [
-        { path: '/', element: <Topics></Topics> },
+        {
+          path: '/',
+          loader: async () => fetch('https://openapi.programming-hero.com/api/quiz'),
+          element: <Topics></Topics>,
+        },
         { path: 'statistics', element: <Statistics></Statistics> },
         { path: 'blog', element: <Blog></Blog> },
       ],
     },
+
+    { path: '/quiz/:id' },
   ]);
 
   return (
