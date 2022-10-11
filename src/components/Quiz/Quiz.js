@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import Question from '../Question/Question';
 
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Notfound from '../NotFound/Notfound';
 
@@ -10,9 +10,6 @@ const Quiz = () => {
   const { total, name, questions } = data;
 
   console.log(data);
-
-  const successToast = (message) => toast.success(message);
-  const errorToast = () => toast.error('Wrong Answer');
 
   return !questions ? (
     <Notfound></Notfound>
@@ -25,7 +22,7 @@ const Quiz = () => {
       </div>
       <div className='max-w-4xl mx-auto mt-6'>
         {questions?.map((question) => (
-          <Question toastMessage={{ successToast, errorToast }} key={question.id} item={question}></Question>
+          <Question key={question.id} item={question}></Question>
         ))}
       </div>
       <ToastContainer autoClose={2000} position='top-center' />

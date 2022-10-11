@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
-const Question = ({ item, toastMessage }) => {
+const Question = ({ item }) => {
+  const successToast = (message) => toast.success(message);
+  const infoToast = (message) => toast.info(message);
+  const errorToast = () => toast.error('Wrong Answer');
+
   const { question, options, id, correctAnswer } = item;
-  const { successToast, errorToast } = toastMessage;
 
   const [correctAns, setCorrectAns] = useState(false);
 
@@ -16,7 +20,7 @@ const Question = ({ item, toastMessage }) => {
   };
 
   const handleShowCorrectAns = () => {
-    successToast(`Correct Ans: ${correctAnswer}`);
+    infoToast(`Correct Ans is: ${correctAnswer}`);
     setCorrectAns(true);
   };
 
