@@ -11,7 +11,7 @@ const Quiz = () => {
 
   console.log(data);
 
-  const successToast = () => toast.success('Correct Answer');
+  const successToast = (message) => toast.success(message);
   const errorToast = () => toast.error('Wrong Answer');
 
   return !questions ? (
@@ -23,7 +23,7 @@ const Quiz = () => {
           Total {total} Quizzes of {name} Topic
         </h1>
       </div>
-      <div className='max-w-3xl mx-auto mt-6'>
+      <div className='max-w-4xl mx-auto mt-6'>
         {questions?.map((question) => (
           <Question toastMessage={{ successToast, errorToast }} key={question.id} item={question}></Question>
         ))}

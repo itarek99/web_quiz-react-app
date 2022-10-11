@@ -9,14 +9,15 @@ const Question = ({ item, toastMessage }) => {
 
   const handleChange = (option) => {
     if (option === correctAnswer) {
-      successToast();
+      successToast('Correct Answer');
     } else {
       errorToast();
     }
   };
 
   const handleShowCorrectAns = () => {
-    setCorrectAns(!correctAns);
+    successToast(`Correct Ans: ${correctAnswer}`);
+    setCorrectAns(true);
   };
 
   return (
@@ -29,7 +30,7 @@ const Question = ({ item, toastMessage }) => {
       </div>
       <div className='px-2'>
         {options.map((option, index) => (
-          <div key={index} className={`mb-2 flex items-center `}>
+          <div key={index} className={`mb-3 flex items-center `}>
             <input
               onChange={() => handleChange(option)}
               className={`mr-2 cursor-pointer`}
@@ -40,7 +41,7 @@ const Question = ({ item, toastMessage }) => {
               name={id}
             />
             <label
-              className={`cursor-pointer ${option === correctAnswer && correctAns ? 'text-teal-500 font-medium' : ''}`}
+              className={`cursor-pointer ${option === correctAnswer && correctAns ? 'text-teal-500' : ''}`}
               htmlFor={option}
             >
               {option}
