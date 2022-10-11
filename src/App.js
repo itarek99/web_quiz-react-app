@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blog from './components/Blog/Blog';
+import Notfound from './components/NotFound/Notfound';
 import Quiz from './components/Quiz/Quiz';
 import Statistics from './components/Statistics/Statistics';
 import Topics from './components/Topics/Topics';
@@ -25,7 +26,7 @@ function App() {
           },
           element: <Quiz></Quiz>,
         },
-        { path: '*', element: <h1>Page Not Found</h1> },
+        { path: '*', element: <Notfound></Notfound> },
       ],
     },
   ]);
