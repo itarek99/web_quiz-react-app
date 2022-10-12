@@ -1,7 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import Question from '../Question/Question';
 
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Notfound from '../NotFound/Notfound';
 
@@ -14,10 +13,10 @@ const Quiz = () => {
   return !questions ? (
     <Notfound></Notfound>
   ) : (
-    <div className='container mx-auto px-4 md:px-0 mt-8 mb-20'>
+    <div className='container mx-auto px-4 xl:px-0 mt-8 mb-20'>
       <div className='text-center'>
         <h1 className='text-2xl font-semibold'>
-          Total {total} Quizzes of {name} Topic
+          Total {total} Quizzes of <span className='text-teal-500 font-bold'>{name}</span> Topic
         </h1>
       </div>
       <div className='max-w-4xl mx-auto mt-6'>
@@ -25,7 +24,6 @@ const Quiz = () => {
           <Question key={question.id} item={question}></Question>
         ))}
       </div>
-      <ToastContainer autoClose={2000} position='top-center' />
     </div>
   );
 };

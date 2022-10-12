@@ -3,9 +3,9 @@ import { FaEye } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const Question = ({ item }) => {
-  const successToast = (message) => toast.success(message);
-  const infoToast = (message) => toast.info(message);
-  const errorToast = () => toast.error('Wrong Answer');
+  const successToast = (message) => toast.success(message, { theme: 'dark', autoClose: 1000 });
+  const errorToast = (message) => toast.error(message, { theme: 'dark', autoClose: 1000 });
+  const infoToast = (message) => toast.info(message, { theme: 'dark', autoClose: 2000 });
 
   const { question, options, id, correctAnswer } = item;
 
@@ -15,7 +15,7 @@ const Question = ({ item }) => {
     if (option === correctAnswer) {
       successToast('Correct Answer');
     } else {
-      errorToast();
+      errorToast('Wrong Answer');
     }
   };
 
@@ -28,8 +28,8 @@ const Question = ({ item }) => {
     <div className='border border-teal-500 mb-8 p-8'>
       <div className='flex justify-between items-center gap-4 mb-4'>
         <div className='text-xl font-medium' dangerouslySetInnerHTML={{ __html: question }}></div>
-        <button className='' onClick={handleShowCorrectAns}>
-          <FaEye></FaEye>
+        <button className='p-1' onClick={handleShowCorrectAns}>
+          <FaEye className='text-teal-500'></FaEye>
         </button>
       </div>
       <div className='px-2'>
