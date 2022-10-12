@@ -9,7 +9,7 @@ Web Quiz is a fictional Quiz App build with react js. You can check it [Here](ht
 - react-toastify
 - react-icons
 
-### Features
+## Features
 
 - multiple topic
 - multiple choice question
